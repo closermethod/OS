@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Closer Method | AI-Powered Creator Operations</title>
     <meta name="description" content="I don't teach you AI tools. I teach you how to build an AI-powered business. Join the founding member list.">
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '35298849146380570');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=35298849146380570&ev=PageView&noscript=1"/></noscript>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -489,20 +504,36 @@
     </footer>
 
     <script>
+        const KIT_FORM_URL = 'https://app.kit.com/forms/9259574/subscriptions';
+
         document.querySelectorAll('.email-form').forEach(form => {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const btn = form.querySelector('button');
+                const email = form.querySelector('input[type="email"]').value;
                 btn.textContent = 'Sending...';
                 btn.disabled = true;
 
                 try {
+                    // Send to Kit form endpoint
+                    const kitResponse = await fetch(KIT_FORM_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({ email_address: email })
+                    });
+
+                    // Also send to Netlify form as backup
                     const formData = new FormData(form);
-                    await fetch('/', {
+                    fetch('/', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body: new URLSearchParams(formData).toString()
-                    });
+                    }).catch(() => {});
+
+                    // Fire Meta Pixel Lead event
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', { content_name: 'closer-method-waitlist' });
+                    }
 
                     const container = form.parentElement;
                     form.style.display = 'none';
