@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Closer Method | AI-Powered Creator Operations</title>
     <meta name="description" content="I don't teach you AI tools. I teach you how to build an AI-powered business. Join the founding member list.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://closermethod.com">
+    <meta property="og:title" content="The Closer Method | AI-Powered Creator Operations">
+    <meta property="og:description" content="86% of creators use AI. Almost none have a system built around it. This is the course that teaches you how.">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@closermethod">
+    <meta name="twitter:title" content="The Closer Method | AI-Powered Creator Operations">
+    <meta name="twitter:description" content="86% of creators use AI. Almost none have a system built around it. This is the course that teaches you how.">
+
     <!-- Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -483,7 +499,7 @@
 
     <!-- CREDIBILITY -->
     <section class="credibility">
-        <p>Most creator educators teaching AI are content creators who learned AI. I'm a sales operator who built a content business using AI. 15 years at Criteo, Deel, Autodesk, HBO, Bloomberg, McCann, Young & Rubicam. <strong>NYU graduate. 268% of quota.</strong> Different background. Different approach. Different results.</p>
+        <p>Most creator educators teaching AI are content creators who learned AI. <strong>I'm a sales operator who built a content business using AI.</strong> 15 years of enterprise sales. NYU graduate. 268% of quota. I've built systems for companies with millions of users and applied that same thinking to a one-person content operation. Different background. Different approach. Different results.</p>
     </section>
 
     <!-- BOTTOM CTA -->
@@ -504,8 +520,6 @@
     </footer>
 
     <script>
-        const KIT_FORM_URL = 'https://app.kit.com/forms/9259574/subscriptions';
-
         document.querySelectorAll('.email-form').forEach(form => {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -515,12 +529,14 @@
                 btn.disabled = true;
 
                 try {
-                    // Send to Kit form endpoint
-                    const kitResponse = await fetch(KIT_FORM_URL, {
+                    // Send to Kit via Netlify function (api_secret stays server-side)
+                    const response = await fetch('/.netlify/functions/subscribe', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                        body: JSON.stringify({ email_address: email })
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email: email })
                     });
+
+                    if (!response.ok) throw new Error('Subscription failed');
 
                     // Also send to Netlify form as backup
                     const formData = new FormData(form);
