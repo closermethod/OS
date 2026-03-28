@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Closer Method | AI Systems for Content Creators</title>
-    <meta name="description" content="Not another AI tools course. The system that teaches content creators how to build an AI-powered business operation. Join the waitlist.">
+    <title>The Closer Method | AI-Powered Creator Operations</title>
+    <meta name="description" content="I don't teach you AI tools. I teach you how to build an AI-powered business. Join the founding member list.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -16,15 +16,16 @@
         }
 
         :root {
-            --cream: #FAF8F5;
-            --warm-white: #FEFDFB;
-            --sand: #F0EBE3;
-            --stone: #D4CEC4;
-            --warm-gray: #9B958A;
+            --cream: #FEF7F5;
+            --warm-white: #FFFFFF;
+            --blush: #FDF3EF;
+            --soft-teal: #EFFCFA;
+            --teal-cta: #13B38B;
+            --teal-hover: #0F9A77;
             --charcoal: #2C2825;
             --deep-black: #1A1714;
-            --accent: #BFA88F;
-            --accent-hover: #A8916F;
+            --warm-gray: #8A8279;
+            --stone: #D4CEC4;
         }
 
         html {
@@ -35,802 +36,475 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Montserrat', -apple-system, sans-serif;
             background-color: var(--cream);
             color: var(--charcoal);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         /* NAV */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(250, 248, 245, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 206, 196, 0.3);
-            transition: all 0.4s ease;
-        }
-
-        nav.scrolled {
-            padding: 1rem 3rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            background: var(--cream);
         }
 
         .nav-logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.35rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--deep-black);
-        }
-
-        .nav-cta {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--warm-gray);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-cta:hover {
-            color: var(--charcoal);
         }
 
         /* HERO */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2.5rem;
             text-align: center;
-            padding: 8rem 2rem 6rem;
-            position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 80px;
-            background: linear-gradient(to bottom, transparent, var(--stone));
-            opacity: 0;
-            animation: fadeDown 1.2s ease 0.5s forwards;
-        }
-
-        @keyframes fadeDown {
-            to { opacity: 1; }
-        }
-
-        .hero-label {
-            font-size: 0.65rem;
+        .hero-eyebrow {
+            font-size: 0.7rem;
             font-weight: 500;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--warm-gray);
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.3s forwards;
+            margin-bottom: 1.75rem;
         }
 
         .hero h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+            font-size: clamp(2.4rem, 5.5vw, 3.6rem);
             font-weight: 300;
-            line-height: 1.1;
+            line-height: 1.15;
             color: var(--deep-black);
-            max-width: 820px;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.5s forwards;
+            margin-bottom: 1.75rem;
         }
 
         .hero h1 em {
             font-style: italic;
-            font-weight: 300;
         }
 
         .hero-sub {
-            font-size: 1.05rem;
-            font-weight: 300;
-            line-height: 1.7;
-            color: var(--warm-gray);
-            max-width: 540px;
-            margin-bottom: 3.5rem;
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.7s forwards;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* FORM */
-        .waitlist-form-container {
-            opacity: 0;
-            animation: fadeUp 0.8s ease 0.9s forwards;
-            width: 100%;
-            max-width: 480px;
-        }
-
-        .waitlist-form {
-            display: flex;
-            gap: 0;
-            width: 100%;
-            border: 1px solid var(--stone);
-            border-radius: 2px;
-            overflow: hidden;
-            transition: border-color 0.3s ease;
-        }
-
-        .waitlist-form:focus-within {
-            border-color: var(--accent);
-        }
-
-        .waitlist-form input[type="email"] {
-            flex: 1;
-            padding: 1rem 1.25rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-            color: var(--charcoal);
-            background: var(--warm-white);
-            border: none;
-            outline: none;
-        }
-
-        .waitlist-form input[type="email"]::placeholder {
-            color: var(--stone);
-        }
-
-        .waitlist-form button {
-            padding: 1rem 2rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--warm-white);
-            background: var(--charcoal);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .waitlist-form button:hover {
-            background: var(--deep-black);
-        }
-
-        .form-note {
-            margin-top: 1rem;
-            font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 0.06em;
-            color: var(--stone);
-        }
-
-        /* SUCCESS STATE */
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .success-message.show {
-            display: block;
-            animation: fadeUp 0.6s ease forwards;
-        }
-
-        .success-message h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: var(--deep-black);
-            margin-bottom: 0.75rem;
-        }
-
-        .success-message p {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--warm-gray);
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            padding: 3.5rem 2rem;
-            background: var(--warm-white);
-            border-top: 1px solid rgba(212, 206, 196, 0.3);
-            border-bottom: 1px solid rgba(212, 206, 196, 0.3);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .stat {
-            padding: 0 1rem;
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            font-weight: 300;
-            color: var(--deep-black);
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 0.72rem;
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            color: var(--warm-gray);
-            line-height: 1.5;
-        }
-
-        /* THE GAP SECTION */
-        .gap-section {
-            padding: 7rem 2rem;
-            max-width: 720px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .gap-section h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 300;
-            color: var(--deep-black);
-            margin-bottom: 2rem;
-            line-height: 1.25;
-        }
-
-        .gap-section p {
             font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--warm-gray);
-            line-height: 1.8;
-            margin-bottom: 1.25rem;
-        }
-
-        .gap-section p strong {
-            color: var(--charcoal);
             font-weight: 400;
-        }
-
-        /* PILLARS SECTION */
-        .pillars {
-            padding: 7rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .pillars-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .pillars-header h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 300;
-            color: var(--deep-black);
-            margin-bottom: 1.25rem;
-        }
-
-        .pillars-header p {
-            font-size: 0.9rem;
-            font-weight: 300;
             color: var(--warm-gray);
             max-width: 500px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+        /* FIRST CTA - appears early for warm traffic */
+        .first-cta {
+            max-width: 480px;
+            margin: 2.5rem auto 0;
+            padding: 0 2rem;
         }
 
-        .pillar {
-            padding: 2.5rem 2rem;
-            border-top: 1px solid var(--stone);
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .pillar-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            font-weight: 300;
-            color: var(--stone);
-            margin-bottom: 1.5rem;
-        }
-
-        .pillar h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.35rem;
+        .email-form input[type="email"] {
+            padding: 1.05rem 1.25rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
             font-weight: 400;
-            color: var(--deep-black);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .pillar p {
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: var(--warm-gray);
-            line-height: 1.7;
-        }
-
-        /* QUOTE SECTION */
-        .quote-section {
-            padding: 6rem 2rem;
-            text-align: center;
+            color: var(--charcoal);
             background: var(--warm-white);
-            border-top: 1px solid rgba(212, 206, 196, 0.3);
-            border-bottom: 1px solid rgba(212, 206, 196, 0.3);
+            border: 1px solid var(--stone);
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s ease;
         }
 
-        .quote-section blockquote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.4rem, 3vw, 2rem);
-            font-weight: 300;
-            font-style: italic;
-            color: var(--charcoal);
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.5;
+        .email-form input[type="email"]:focus {
+            border-color: var(--teal-cta);
         }
 
-        .quote-section cite {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--warm-gray);
-            font-style: normal;
+        .email-form input[type="email"]::placeholder {
+            color: #C4BEB5;
         }
 
-        /* WHO THIS IS FOR */
-        .who-section {
-            padding: 7rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .email-form button {
+            padding: 1.05rem 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--teal-cta);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .who-section h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            font-weight: 300;
-            color: var(--deep-black);
-            margin-bottom: 3rem;
+        .email-form button:hover {
+            background: var(--teal-hover);
         }
 
-        .who-list {
-            display: grid;
-            gap: 1.25rem;
-            text-align: left;
-            max-width: 560px;
-            margin: 0 auto 3.5rem;
-        }
-
-        .who-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 0.75rem 0;
-        }
-
-        .who-item::before {
-            content: '';
-            display: block;
-            width: 24px;
-            min-width: 24px;
-            height: 1px;
-            background: var(--accent);
-            margin-top: 0.75rem;
-        }
-
-        .who-item p {
-            font-size: 0.95rem;
-            font-weight: 300;
-            color: var(--charcoal);
-            line-height: 1.6;
-        }
-
-        /* CREDIBILITY */
-        .credibility {
-            padding: 5rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(212, 206, 196, 0.3);
-        }
-
-        .credibility-label {
-            font-size: 0.6rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--stone);
-            margin-bottom: 1.75rem;
-        }
-
-        .credibility-logos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem 3rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .credibility-logos span {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+        .form-note {
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
             font-weight: 400;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
             color: var(--stone);
+            text-align: center;
+        }
+
+        /* NARRATIVE */
+        .narrative {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+        }
+
+        .narrative p {
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--charcoal);
+            margin-bottom: 1.4rem;
+        }
+
+        .narrative p strong {
+            font-weight: 600;
+            color: var(--deep-black);
+        }
+
+        /* WHAT'S BEING BUILT - teal section */
+        .being-built {
+            background: var(--soft-teal);
+            padding: 4.5rem 2rem;
+        }
+
+        .being-built-inner {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .being-built h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 400;
+            color: var(--deep-black);
+            margin-bottom: 1.75rem;
+            line-height: 1.25;
+        }
+
+        .being-built p {
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--charcoal);
+            margin-bottom: 1.4rem;
+        }
+
+        .being-built p strong {
+            font-weight: 600;
+            color: var(--deep-black);
+        }
+
+        .build-list {
+            list-style: none;
+            margin: 1.5rem 0 2rem;
+            padding: 0;
+        }
+
+        .build-list li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.92rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.75;
+        }
+
+        .build-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.05rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--teal-cta);
+            opacity: 0.7;
+        }
+
+        /* MID-PAGE CTA - dark button on teal bg for contrast */
+        .mid-cta {
+            max-width: 480px;
+            margin: 2rem auto 0;
+        }
+
+        .mid-cta .email-form button {
+            background: var(--deep-black);
+            color: var(--cream);
+        }
+
+        .mid-cta .email-form button:hover {
+            background: var(--charcoal);
+        }
+
+        /* CREDIBILITY - blush section */
+        .credibility {
+            background: var(--blush);
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .credibility p {
+            max-width: 580px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--warm-gray);
+            line-height: 1.85;
+        }
+
+        .credibility p strong {
+            color: var(--charcoal);
+            font-weight: 500;
         }
 
         /* BOTTOM CTA */
         .bottom-cta {
-            padding: 7rem 2rem;
-            text-align: center;
             background: var(--deep-black);
-            color: var(--cream);
+            padding: 5rem 2rem;
+            text-align: center;
         }
 
         .bottom-cta h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 300;
-            margin-bottom: 1.25rem;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 400;
             color: var(--cream);
+            margin-bottom: 0.75rem;
         }
 
         .bottom-cta .sub {
-            font-size: 0.9rem;
-            font-weight: 300;
+            font-size: 0.88rem;
+            font-weight: 400;
             color: var(--warm-gray);
-            margin-bottom: 3rem;
-            max-width: 460px;
+            margin-bottom: 2.5rem;
+            max-width: 440px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
-        .bottom-cta .waitlist-form {
-            border-color: rgba(155, 149, 138, 0.3);
-            max-width: 480px;
+        .bottom-cta .email-form {
+            max-width: 440px;
             margin: 0 auto;
         }
 
-        .bottom-cta .waitlist-form:focus-within {
-            border-color: var(--accent);
-        }
-
-        .bottom-cta .waitlist-form input[type="email"] {
-            background: rgba(255, 255, 255, 0.05);
+        .bottom-cta .email-form input[type="email"] {
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(155,149,138,0.3);
             color: var(--cream);
         }
 
-        .bottom-cta .waitlist-form input[type="email"]::placeholder {
-            color: rgba(155, 149, 138, 0.5);
+        .bottom-cta .email-form input[type="email"]::placeholder {
+            color: rgba(155,149,138,0.5);
         }
 
-        .bottom-cta .waitlist-form button {
-            background: var(--accent);
-            color: var(--deep-black);
+        .bottom-cta .email-form input[type="email"]:focus {
+            border-color: var(--teal-cta);
         }
 
-        .bottom-cta .waitlist-form button:hover {
-            background: var(--accent-hover);
+        .bottom-cta .email-form button {
+            background: var(--teal-cta);
+            color: white;
         }
 
         .bottom-cta .form-note {
-            color: rgba(155, 149, 138, 0.4);
+            color: rgba(155,149,138,0.45);
         }
 
         /* FOOTER */
         footer {
-            padding: 2.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(212, 206, 196, 0.3);
+            padding: 2rem;
+            text-align: center;
             background: var(--cream);
+            border-top: 1px solid rgba(212, 206, 196, 0.3);
         }
 
         footer p {
             font-size: 0.65rem;
             font-weight: 400;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             color: var(--stone);
+        }
+
+        /* SUCCESS */
+        .success-message {
+            display: none;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .success-message h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--deep-black);
+            margin-bottom: 0.4rem;
+        }
+
+        .success-message p {
+            font-size: 0.88rem;
+            font-weight: 400;
+            color: var(--warm-gray);
+        }
+
+        .bottom-cta .success-message h3 {
+            color: var(--cream);
+        }
+
+        .being-built .success-message h3 {
+            color: var(--deep-black);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav {
-                padding: 1.25rem 1.5rem;
-            }
-
-            nav.scrolled {
-                padding: 1rem 1.5rem;
-            }
-
             .hero {
-                padding: 7rem 1.5rem 5rem;
+                padding: 2.5rem 1.5rem 2rem;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .first-cta {
+                padding: 0 1.5rem;
+                margin-top: 2rem;
             }
 
-            .stat {
-                padding: 1rem 0;
-                border-bottom: 1px solid rgba(212, 206, 196, 0.3);
+            .narrative {
+                padding: 3.5rem 1.5rem 3rem;
             }
 
-            .stat:last-child {
-                border-bottom: none;
-            }
-
-            .gap-section {
-                padding: 5rem 1.5rem;
-            }
-
-            .pillars {
-                padding: 5rem 1.5rem;
-            }
-
-            .pillars-grid {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .pillar {
-                padding: 2rem 0;
-            }
-
-            .quote-section {
-                padding: 4rem 1.5rem;
-            }
-
-            .who-section {
-                padding: 5rem 1.5rem;
+            .being-built {
+                padding: 3.5rem 1.5rem;
             }
 
             .credibility {
-                padding: 3rem 1.5rem;
-            }
-
-            .credibility-logos {
-                gap: 1.25rem 2rem;
+                padding: 2.5rem 1.5rem;
             }
 
             .bottom-cta {
-                padding: 5rem 1.5rem;
+                padding: 3.5rem 1.5rem;
             }
-
-            .waitlist-form {
-                flex-direction: column;
-            }
-
-            .waitlist-form button {
-                padding: 1rem;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 0.75rem;
-                text-align: center;
-                padding: 2rem 1.5rem;
-            }
-        }
-
-        /* SCROLL ANIMATIONS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV -->
     <nav>
         <div class="nav-logo">The Closer Method</div>
-        <a class="nav-cta" onclick="document.querySelector('#waitlist-email').focus(); return false;">Join Waitlist</a>
     </nav>
 
     <!-- HERO -->
     <section class="hero">
-        <p class="hero-label">AI systems, not AI tools</p>
-        <h1>Build the AI operation that <em>runs</em> your content business</h1>
-        <p class="hero-sub">86% of creators use AI. Almost none have a system. This is the method that connects content, sales, and operations into one integrated AI-powered machine.</p>
-        <div class="waitlist-form-container">
-            <form class="waitlist-form" id="waitlist-top" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="waitlist">
-                <p style="display:none"><input name="bot-field"></p>
-                <input type="email" name="email" id="waitlist-email" placeholder="Your email address" required>
-                <button type="submit">Join Waitlist</button>
-            </form>
-            <p class="form-note">Early access pricing for waitlist members only.</p>
-        </div>
+        <p class="hero-eyebrow">@closermethod</p>
+        <h1>You already use AI.<br>You just don't have <em>a system.</em></h1>
+        <p class="hero-sub">86% of creators use AI. Almost none have built an operation around it. I'm building the course that changes that.</p>
     </section>
 
-    <!-- STATS -->
-    <section class="stats-bar reveal">
-        <div class="stats-grid">
-            <div class="stat">
-                <div class="stat-number">54%</div>
-                <div class="stat-label">of creator time disappears into operations, not creating</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">$47K</div>
-                <div class="stat-label">average yearly spend on disconnected AI tools that don't talk to each other</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">0</div>
-                <div class="stat-label">courses teaching creators how to build integrated AI business systems</div>
-            </div>
-        </div>
+    <!-- FIRST CTA - visible within first scroll for warm traffic from X -->
+    <div class="first-cta">
+        <form class="email-form" id="form-top" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="waitlist">
+            <p style="display:none"><input name="bot-field"></p>
+            <input type="email" name="email" placeholder="Your best email" required>
+            <button type="submit">I want early access</button>
+            <p class="form-note">Founding member pricing for this list only. No spam.</p>
+        </form>
+    </div>
+
+    <!-- NARRATIVE -->
+    <section class="narrative">
+        <p>You open ChatGPT. You type "write me a caption." You get something that sounds like a robot wrote it. You rewrite the whole thing yourself. And then you tell people AI doesn't really work.</p>
+
+        <p>That's not AI failing you. <strong>That's a setup problem.</strong></p>
+
+        <p>There is a difference between using AI tools and building an AI system. One gives you generic output you have to rewrite. The other gives you a system that knows your voice, your audience, your offer, and your business. It remembers your last conversation. It builds on what you did yesterday. It runs your business operations while you focus on creating.</p>
+
+        <p>I spent 15 years in enterprise sales at Criteo, Deel, Autodesk, HBO, Bloomberg, McCann, and Young & Rubicam. I closed deals at 268% of quota. What I brought to AI wasn't technical skill. It was systems thinking. And when I applied it, I built an entire content business operation in 90 days. Not by learning 47 tools. By building one integrated system.</p>
+
+        <p><strong>Now I'm turning that system into a course.</strong></p>
     </section>
 
-    <!-- THE GAP -->
-    <section class="gap-section">
-        <h2 class="reveal">You already use AI.<br>You just don't have a system.</h2>
-        <p class="reveal">You open ChatGPT, type a prompt, get something generic, rewrite the whole thing yourself, and conclude AI doesn't really work. <strong>That's not AI failing you. That's a setup problem.</strong></p>
-        <p class="reveal">There is a difference between using AI tools and building an AI system. One gives you mediocre output you have to rewrite. The other gives you a system that knows your voice, your audience, your offer, and your business. It remembers your last conversation. It builds on what you did yesterday. It runs your business operations while you focus on creating.</p>
-        <p class="reveal"><strong>That is what this teaches.</strong> Not which buttons to click. Not which prompts to copy and paste. How to build the machine.</p>
-    </section>
+    <!-- WHAT'S BEING BUILT -->
+    <section class="being-built">
+        <div class="being-built-inner">
+            <h2>What this teaches</h2>
 
-    <!-- PILLARS -->
-    <section class="pillars">
-        <div class="pillars-header reveal">
-            <h2>Three layers of the system</h2>
-            <p>Built from a decade of closing enterprise deals at 268% of quota, applied to AI-powered creator operations.</p>
-        </div>
-        <div class="pillars-grid">
-            <div class="pillar reveal">
-                <div class="pillar-number">01</div>
-                <h3>The AI Brain</h3>
-                <p>Build your context layer: the document that tells AI everything about your business, your voice, your audience, and your rules. Twenty minutes of setup. Every output sounds like you wrote it on your best day.</p>
-            </div>
-            <div class="pillar reveal">
-                <div class="pillar-number">02</div>
-                <h3>The Content Machine</h3>
-                <p>One idea becomes ten pieces of content across three platforms in under an hour. AI handles the translation between formats. You keep the thinking. The busywork disappears.</p>
-            </div>
-            <div class="pillar reveal">
-                <div class="pillar-number">03</div>
-                <h3>The Sales Operation</h3>
-                <p>AI-drafted outreach that converts. DM sequences that sound like you. Follow-up systems that turn ghosted conversations into closed deals. Enterprise sales frameworks, built for solo creators.</p>
-            </div>
-        </div>
-    </section>
+            <p>Not another "how to use ChatGPT" tutorial. Not a prompt library. This is the complete AI business operation that nobody else is teaching because everybody else is still making tool reviews.</p>
 
-    <!-- QUOTE -->
-    <section class="quote-section reveal">
-        <blockquote>"I'm not an AI expert. I'm a creator who figured out how AI actually works for our world. Every workflow I teach is one I use every single day, with real money on the line."</blockquote>
-        <cite>Elisabeth, Founder</cite>
-    </section>
+            <ul class="build-list">
+                <li>How to build an AI brain that knows your business so every output sounds like you wrote it on your best day</li>
+                <li>A content production system where one idea becomes 10 pieces across multiple platforms in under an hour</li>
+                <li>AI-powered sales operations: outreach, DMs, follow-ups, and sequences that convert</li>
+                <li>The full operation connected: content to sales to admin, running while you create</li>
+            </ul>
 
-    <!-- WHO THIS IS FOR -->
-    <section class="who-section">
-        <h2 class="reveal">This is for you if</h2>
-        <div class="who-list">
-            <div class="who-item reveal">
-                <p>You already use AI but you are getting generic output and spending more time editing than creating</p>
-            </div>
-            <div class="who-item reveal">
-                <p>You are a solo creator running content, sales, DMs, invoicing, and operations by yourself and the volume is unsustainable</p>
-            </div>
-            <div class="who-item reveal">
-                <p>You subscribe to 3+ AI tools, spend hours testing new ones, and still feel behind</p>
-            </div>
-            <div class="who-item reveal">
-                <p>You want a real business operation, not another course that teaches you which buttons to click in ChatGPT</p>
-            </div>
-            <div class="who-item reveal">
-                <p>You identify as a business owner, not just a content creator, and you want AI infrastructure that matches</p>
+            <p><strong>I don't teach you AI tools. I teach you how to build an AI-powered business.</strong></p>
+
+            <!-- MID-PAGE CTA - dark button on teal for contrast -->
+            <div class="mid-cta">
+                <form class="email-form" id="form-mid" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="waitlist">
+                    <p style="display:none"><input name="bot-field"></p>
+                    <input type="email" name="email" placeholder="Your best email" required>
+                    <button type="submit">I want early access</button>
+                    <p class="form-note">Founding members get first access and pricing that won't exist at launch.</p>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- CREDIBILITY -->
-    <section class="credibility reveal">
-        <p class="credibility-label">Enterprise sales across NYC, Barcelona, and London before building this</p>
-        <div class="credibility-logos">
-            <span>Deel</span>
-            <span>Autodesk</span>
-            <span>Criteo</span>
-            <span>McCann</span>
-            <span>Young & Rubicam</span>
-            <span>Wondersauce</span>
-            <span>NYU</span>
-        </div>
+    <section class="credibility">
+        <p><strong>15 years in enterprise sales.</strong> 268% of quota. NYU graduate. Built pipeline systems at companies most creators have never heard of and applied that same operational thinking to AI. The creator educators teaching AI right now are content creators who learned AI. I'm an operator who built a content business using AI. That's a different perspective. And it's the one that gets results.</p>
     </section>
 
     <!-- BOTTOM CTA -->
     <section class="bottom-cta">
-        <h2 class="reveal">The waitlist is open</h2>
-        <p class="sub reveal">Founding members get early access, exclusive pricing, and first look at the full system. This is the only way in before public launch.</p>
-        <div class="waitlist-form-container reveal">
-            <form class="waitlist-form" id="waitlist-bottom" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="waitlist">
-                <p style="display:none"><input name="bot-field"></p>
-                <input type="email" name="email" placeholder="Your email address" required>
-                <button type="submit">Join Waitlist</button>
-            </form>
-            <p class="form-note">No spam. Early access pricing for waitlist members only.</p>
-        </div>
+        <h2>This list closes when the course opens.</h2>
+        <p class="sub">Founding members get early access and pricing that won't be available at public launch.</p>
+        <form class="email-form" id="form-bottom" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="waitlist">
+            <p style="display:none"><input name="bot-field"></p>
+            <input type="email" name="email" placeholder="Your best email" required>
+            <button type="submit">I want early access</button>
+            <p class="form-note">No spam. Just first access when it's ready.</p>
+        </form>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <p>The Closer Method</p>
-        <p>&copy; 2026</p>
+        <p>The Closer Method &copy; 2026</p>
     </footer>
 
     <script>
-        // Nav scroll effect
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        reveals.forEach(el => observer.observe(el));
-
-        // Form submission
-        document.querySelectorAll('.waitlist-form').forEach(form => {
+        document.querySelectorAll('.email-form').forEach(form => {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const btn = form.querySelector('button');
-                btn.textContent = 'JOINING...';
+                btn.textContent = 'Sending...';
                 btn.disabled = true;
 
                 try {
@@ -843,15 +517,13 @@
 
                     const container = form.parentElement;
                     form.style.display = 'none';
-                    const note = container.querySelector('.form-note');
-                    if (note) note.style.display = 'none';
 
                     const success = document.createElement('div');
                     success.className = 'success-message show';
-                    success.innerHTML = '<h3>You are on the list</h3><p>Watch your inbox. Early access details are coming.</p>';
+                    success.innerHTML = "<h3>You're on the list.</h3><p>You'll hear from me before anyone else.</p>";
                     container.appendChild(success);
                 } catch (err) {
-                    btn.textContent = 'TRY AGAIN';
+                    btn.textContent = 'Try again';
                     btn.disabled = false;
                 }
             });
