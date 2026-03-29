@@ -10,20 +10,25 @@ exports.handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ error: 'Valid email required' }) };
     }
 
-    const response = await fetch('https://api.convertkit.com/v3/forms/9259574/subscribe', {
+    const apiSecret = process.env.KIT_API_SECRET;
+
+    // Subscribe to form (triggers automation for new subscribers)
+    const formResponse = await fetch('https://api.convertkit.com/v3/forms/9259574/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        api_secret: process.env.KIT_API_SECRET,
-        email: email
-      })
+      body: JSON.stringify({ api_secret: apiSecret, email: email })
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      return { statusCode: response.status, body: JSON.stringify({ error: 'Subscription failed' }) };
+    if (!formResponse.ok) {
+      return { statusCode: formResponse.status, body: JSON.stringify({ error: 'Subscription failed' }) };
     }
+
+    // Also tag directly (ensures tag applies even for existing subscribers)
+    await fetch('https://api.convertkit.com/v3/tags/18168606/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ api_secret: apiSecret, email: email })
+    }).catch(() => {});
 
     return {
       statusCode: 200,
