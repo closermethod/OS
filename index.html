@@ -269,21 +269,6 @@
             opacity: 0.7;
         }
 
-        /* MID-PAGE CTA - dark button on teal bg for contrast */
-        .mid-cta {
-            max-width: 480px;
-            margin: 2rem auto 0;
-        }
-
-        .mid-cta .email-form button {
-            background: var(--deep-black);
-            color: var(--cream);
-        }
-
-        .mid-cta .email-form button:hover {
-            background: var(--charcoal);
-        }
-
         /* CREDIBILITY - blush section */
         .credibility {
             background: var(--blush);
@@ -404,10 +389,6 @@
             color: var(--cream);
         }
 
-        .being-built .success-message h3 {
-            color: var(--deep-black);
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
@@ -460,7 +441,7 @@
         <form class="email-form" id="form-top" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="waitlist">
             <p style="display:none"><input name="bot-field"></p>
-            <input type="email" name="email" placeholder="Your best email" required>
+            <input type="email" name="email" placeholder="Your best email" aria-label="Email address" required>
             <button type="submit">I want early access</button>
             <p class="form-note">Founding member pricing for this list only. No spam.</p>
         </form>
@@ -509,7 +490,7 @@
         <form class="email-form" id="form-bottom" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="waitlist">
             <p style="display:none"><input name="bot-field"></p>
-            <input type="email" name="email" placeholder="Your best email" required>
+            <input type="email" name="email" placeholder="Your best email" aria-label="Email address" required>
             <button type="submit">I want early access</button>
             <p class="form-note">No spam. Just first access when it's ready.</p>
         </form>
